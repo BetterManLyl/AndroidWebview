@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
     </style>
     <!-- 防止欢迎页白屏或者黑屏，设置图片 -->
     <style name="SplashTheme" parent="AppTheme">
