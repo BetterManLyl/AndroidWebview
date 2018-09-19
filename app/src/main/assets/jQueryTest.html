@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试jQuery</title>
+
+
+    <!--引入jquery-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+
+</head>
+<body>
+
+<button id="button">444</button>
+
+<p>点我隐藏</p>
+<p id="p_hide">点我也隐藏</p>
+<p>点我还是隐藏</p>
+<p id="demo">点击按钮获取您当前坐标（可能需要比较长的时间获取）：</p>
+<button onclick="getLocation()">点我</button>
+
+<button id="addText" onclick="addText()">添加元素</button>
+
+<button onclick="postajax()"></button>
+
+<input id="input">
+
+<script type="text/javascript">
+    //        $(document).ready(function () {
+    //            console.log("111")
+    //            $("#button").click(function () {
+    //                console.log("button")
+    //            })
+    //        })
+
+    // window.load=function () {
+    //
+    // }
+
+
+    var person = {
+        age: 12,
+        name: 'lyl',
+        getName: function () {
+            return this.name;
+        }
+    }
+
+    this.person.age = "130";
+    console.log(this.person.age)
+
+    console.log(person.getName())
+
+    var x = document.getElementById("demo");
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition, errorBack);
+        }
+        else {
+            x.innerHTML = "该浏览器不支持获取地理位置。";
+        }
+    }
+
+    function showPosition(position) {
+        x.innerHTML = position.coords.latitude +
+            position.coords.longitude;
+
+    }
+
+    function errorBack(error) {
+        var x = "";
+        switch (error.code) {
+            case error.PERMISSION_DENIED:
+                x = "未获取位置权限"
+                break;
+            case error.POSITION_UNAVAILABLE:
+                x = "位置信息不可用"
+                break;
+            case error.TIMEOUT:
+                x = "获取位置超时"
+                break;
+            case error.UNKNOWN_ERROR:
+                x = "获取位置时发生未知错误"
+                break;
+        }
+        alert(x);
+
+    }
+
+
+    //页面加载完之后执行  所有的事件都写在这里面
+    $(function () {
+        console.log("111")
+        $("#button").click(function () {
+            console.log("button")
+            //id为p_hide隐藏
+            // $("#p_hide").hide();
+
+        }),
+            //点击触发
+            $("p").click(function () {
+                $(this).hide();
+            })
+        //双击触发
+        $("p").dblclick(function () {
+            console.log("ondblclick")
+        })
+        //当鼠标穿过该元素是触发
+        $("#p_hide").mouseenter(function () {
+            console.log("经过该元素")
+        })
+        //当鼠标指针离开元素时
+        $("#p_hide").mouseleave(function () {
+            console.log("离开该元素")
+        })
+
+
+    })
+
+    function postajax() {
+        $.get("https://www.baidu.com/", function (data, status) {
+            alert("数据：" + data + "\n状态：" + status);
+        }).error(function(msg){
+            alert(JSON.stringify(msg))
+        });
+//        $.ajax({
+//            type: "GET",
+//            url: "https://www.baidu.com",
+//
+//           // data: {username:$("#username").val(), content:$("#content").val()},
+//          //  dataType: "json",
+//
+//            success: function(data){
+//                console.log('000')
+////                $('#resText').empty();   //清空resText里面的所有内容
+////                var html = '';
+////                $.each(data, function(commentIndex, comment){
+////                    html += '<div class="comment"><h6>' + comment['username']
+////                        + ':</h6><p class="para"' + comment['content']
+////                        + '</p></div>';
+////                });
+////                $('#resText').html(html);
+//            }
+//        });
+    }
+
+    function addText() {
+        console.log("11")
+        //$("#addText").text("Hello world!")
+        $("#addText").html("<b>Hello world!</b>")
+        //$("#input").val("Hello world!")
+    }
+
+
+</script>
+
+</body>
+</html>

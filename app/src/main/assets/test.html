@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+</head>
+
+<style>
+
+    #aaa {
+        size: 16px;
+    }
+
+    .aaa {
+        font-size: 30px;
+    }
+
+</style>
+<body>
+
+<div id="onload">
+    <a class="aaa" id="aaa" title="this is a href" href="http://www.baidu.com">这是一个连接</a>
+    <p>这是一个普通的文本 <b>这是一个加粗文本</b>。</p>
+
+    <p class="aaa" onclick="myFunction()" style="">78</p>
+
+    <button onclick="alert('欢迎')">按钮</button>
+
+
+    <script>
+        document.write("这是一个script")
+
+        document.write(Date())
+    </script>
+
+    <button id="p" onclick="innerTxt()">加入文本</button>
+
+    <button id="change" onclick="changeTxt()">改变文本</button>
+
+    <button onclick="valuePass('今天','天气')">点击传递参数</button>
+    <script>
+
+    </script>
+</div>
+
+<div>
+
+    <button id="demo" onclick="getElementById('demo').innerHTML=Date()">改变时间</button>
+    <button onclick="this.innerHTML=Date()">点击</button>
+    <button onkeydown="test()">加载</button>
+    <form name="myForm" action="next_page.html"
+          onsubmit="return validateForm()" method="post">
+        名字: <input type="text" name="fname">
+        <input type="submit" value="提交">
+    </form>
+
+    <button id="test">test</button>
+
+    <input id="in" type="number" min="10" max="300" required>
+    <button onclick="checkFunction()">验证</button>
+
+    <p></p>
+
+    <p>点击按钮执行 <em>displayDate()</em> 函数.</p>
+    <button id="myBtn">点这里</button>
+
+    <p id="demo2"></p>
+
+    <script>
+        document.getElementById("myBtn").addEventListener("click", displayDate);
+
+        function displayDate() {
+            document.getElementById("demo").innerHTML = Date();
+        }
+    </script>
+</div>
+
+<!--script的位置会影响布局-->
+<script>
+    window.onload=function () {
+        app.init();
+    }
+
+    var app = {
+        init: function () {
+            this.onDeviceReady();
+        },
+        onDeviceReady: function () {
+            this.receivedEvent();
+        },
+        receivedEvent: function () {
+            this.test();
+        },
+        test: function () {
+            console.log("test")
+        }
+    }
+   // app.init();
+
+    //app.test();
+    document.write("<h1>这是一个标题</h1>")
+    document.write("<p>这是一个段落</p>")
+    console.log("John".constructor);
+    console.log(String(false))
+    for (var i = 0; i < 10; i++) {
+        document.write(i + "<br>");
+    }
+
+    var person = [1, 2, 3, 4];
+
+
+    //        document.getElementById("test").onclick=function click() {
+    //
+    //        }
+
+    var txt = "1"
+    // x 为属性名
+    for (x in person) {
+        txt += person[x];
+        document.write(txt + "<br>");
+    }
+    var carname = "Volvo";
+    var carname;
+    var x;
+    var cars = new Array();
+    //对象里面包括属性，方法也可以
+    var car = {
+        name: 'dazhong',
+        age: '5',
+        lunzi: [1, 2, 3, 4],
+        add: function () {
+            return "444"
+        },
+        drive: function () {
+            return "开车"
+        },
+    }
+    var person = {
+        firstName: 'John',
+        lastName: "Doe",
+        id: 5566,
+        fullName: function () {
+            return this.firstName + " " + this.lastName;
+        }
+    };
+    var carname = "Volvo XC60";
+    //var carname = 'Volvo XC60';
+    var character = carname[7];
+    var char = person.firstName;
+    console.log(person.firstName[0])
+    console.log(character)
+    console.log(person.fullName())
+    console.log(car.add());
+    console.log(car.drive());
+    cars[0] = "Saab";
+    cars[1] = "Volvo";
+    cars[2] = "BMW";
+    var cars = new Array("Saab", "Volvo", "BMW");
+    //js对象
+    var person = {firstname: "John", lastname: "Doe", id: 5566};
+    //对象两种寻址方式
+    console.log(person.firstname)
+    console.log(person["firstname"])
+
+    console.log(cars[0])
+    console.log(cars[0])
+
+    console.log(testId)
+
+    function test() {
+        testId = "111";
+        console.log('jaizai' + testId)
+    }
+
+
+    //如果您把值赋给尚未声明的变量，该变量将被自动作为 window 的一个属性
+    age = 2;
+    // delete  age;
+    console.log(window.age)
+
+    function $$(id) {
+        return x = document.getElementById(id);
+    }
+
+    function innerTxt() {
+        $$("p").innerHTML = "sssss";
+    }
+
+
+    function changeTxt() {
+        var value = this.$$("change").innerHTML;
+        if (value.match('改变文本')) {
+            this.$$("change").innerHTML = "改变了"
+        } else {
+            this.$$("change").innerHTML = "改变文本"
+        }
+    }
+
+    function myFunction() {
+        document.write(Date());
+    }
+
+    function valuePass(valueone, valuetwo) {
+        alert(valueone + valuetwo)
+    }
+
+    function validateForm() {
+        var x = document.forms["myForm"]["fname"].value;
+        if (x == null || x == "") {
+            alert("需要输入名字。");
+            return false;
+        }
+    }
+
+    function checkFunction() {
+        var text = document.getElementById("in");
+        if (text.checkValidity() == false) {
+            console.log(text.validationMessage)
+        }
+
+    }
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+
+
+</head>
+<script type="text/javascript">
+
+
+    //获取输入框的值
+    function getInputValue() {
+        var value = document.getElementById("input").value;
+        return value;
+    }
+
+    //打电话
+    function callPhone() {
+        //调用原生的方法，android为约定的别名；callPhone()为原生的方法
+        window.android.callPhone("18326897225");
+    }
+
+
+    function callJsWithValue() {
+
+        return "success"
+    }
+
+    function getValueFromAndroid(value) {
+        alert(value);
+    }
+
+
+    function callJs() {
+        alert("成功调用了")
+    }
+
+    /**
+     * 拍照回调
+     * @param result
+     */
+    function takePhotoCallBack(result) {
+        document.getElementById("myImage").src = result;
+        return "加载成功";
+    }
+
+    function success() {
+
+    }
+
+    /**
+     * 拍照
+     */
+    function takePhoto() {
+        window.android.takePhoto();
+    }
+
+    function errorPage() {
+        window.location.href = "error_page.html";
+    }
+
+    /**
+     * 下一页
+     */
+    function nextPage() {
+        window.location.href = "next_page.html";
+    }
+
+    /**
+     * 获取设备信息
+     */
+    function getDeviceInfo() {
+        var result = window.android.getDeviceInfo();
+        document.getElementById("p").innerHTML = result;
+    }
+
+    /**
+     * 拦截shouldOverrideUrl
+     */
+    function clickshouldUrl() {
+        /*约定的url协议为：js://webview?arg1=111&arg2=222*/
+        document.location = "js://webview?arg1=111&arg2=222";
+
+    }
+
+    function clickPrompt() {
+        // 调用prompt（）
+        var result = prompt("js://demo?arg1=111&arg2=222");
+        alert("输入的值是： " + result);
+    }
+
+    function getContacts() {
+        window.android.getContacts();
+    }
+
+
+</script>
+
+<style>
+    button {
+        height: 70px;
+        width: 50%;
+        float: left;
+    }
+
+
+</style>
+<body>
+
+<div>
+
+    <img id="myImage" src="" style="width: 200px;height: 200px">
+
+
+</div>
+
+<div style="margin-top: 10px">
+    <input style="height: 40px" placeholder="请输入..." id="input">
+</div>
+
+<div style="margin-top: 10px">
+
+
+    <button class="button" onclick="callPhone()">打电话</button>
+    <button class="button" onclick="takePhoto()">拍照</button>
+    <button class="button" onclick="getDeviceInfo()">获取设备信息</button>
+    <button class="button" onclick="getContacts()">获取手机联系人</button>
+
+    <button onclick="clickshouldUrl()">回调拦截URL</button>
+
+    <button onclick="clickPrompt()">拦截Prompt</button>
+
+    <button onclick="nextPage()">跳转到下一个页面</button>
+
+
+</div>
+<div style="clear:both">
+
+    <p id="p"
+       style="height:70px;word-break: normal;white-space: pre-wrap;word-wrap: break-word"></p>
+</div>
+</body>
+</html>

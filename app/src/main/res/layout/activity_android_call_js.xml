@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_load_url"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="加载url" />
+
+        <RadioGroup
+            android:id="@+id/rg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_baidu_url"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="加载百度" />
+
+            <RadioButton
+                android:id="@+id/rb_asset_url"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="加载asset" />
+
+            <RadioButton
+
+                android:id="@+id/rb_sdcard_url"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="加载sdcard" />
+
+            <RadioButton
+                android:id="@+id/rb_load_data"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="加载部分" />
+
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btn_call_js_alert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="调用js的弹框" />
+
+
+    <Button
+        android:id="@+id/btn_call_js_with_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="调用js代码并接收返回值" />
+
+    <Button
+        android:id="@+id/btn_pass_value_js"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="android传值给js"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_get_input_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="获取html中input输入的值"
+        android:textAllCaps="false" />
+
+    <WebView
+        android:id="@+id/wv_android_js"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        />
+</LinearLayout>

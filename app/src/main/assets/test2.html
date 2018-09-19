@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+
+
+    var app = {
+        init: function () {
+            console.log("页面加载完毕")
+            app.myBtn();
+        },
+        myBtn: function () {
+            //使用该方法需要在myBtn加载出来之后才行，不然会报错
+            document.getElementById("myBtn").onclick = function () {
+                console.log("myBtn-->click")
+               // textChange();
+                form();
+                //  clearInterval(myVar)
+            }
+        }
+    }
+    //    var myVar = setInterval(function () {
+    //        console.log("2s后")
+    //    }, 2000);
+
+    //页面加载完毕调用该方法
+    window.onload = onLoad;
+
+    function onLoad() {
+        console.log('加载完毕')
+        app.init();
+        console.log('Height-->' + window.innerHeight)
+        console.log('Width-->' + window.innerWidth)
+    }
+
+    function textChange() {
+        var value = document.getElementById("input").value;
+        console.log(value)
+    }
+
+    function form() {
+        var input = myForm.input.value;
+        alert(input);
+    }
+
+
+</script>
+
+<body>
+
+<div>
+
+    <button id="myBtn">点击</button>
+    <div ng-app="">
+        <p>名字 : <input type="text" ng-model="name"></p>
+        <h1>Hello {{name}}</h1>
+    </div>
+
+    <input oninput="textChange()" onchange="textChange()" name="input" id="input">
+
+    <form name="myForm">
+        <input name="input">
+
+    </form>
+
+</div>
+<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+
+</body>
+
+
+</html>
