@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<html>
+<head>
+    <title>Title</title>
+
+    <meta charset="UTF-8">
+
+</head>
+<body>
+
+<!-- HTML结构 -->
+<h1 id="js">JavaScript</h1>
+<div id="list">
+    <p id="java">Java</p>
+    <p id="python">Python</p>
+    <p id="scheme">Scheme</p>
+</div>
+<script type="text/javascript">
+    // 如果浏览器支持模板字符串，将会替换字符串内部的变量:
+    var name = '小明';
+    var age = 20;
+
+    var s = "hello world";
+    console.log(s.indexOf("hello"));
+    console.log(s.indexOf("Hello"));
+    console.log(s.substring(0, s.length));
+    for (var str = 0; str < 10; str++) {
+        console.log(str)
+        document.write("<h1>Hello World!</h1>")
+    }
+    var js = document.getElementById('js');
+    var list = document.getElementById('list');
+    list.appendChild(js)
+
+    function foo(x) {
+        var tmp = 3;
+        function bar(y) {
+            console.log(x + y + (++tmp))
+        }
+        bar(10);
+    }
+
+    foo(2)
+
+    function sum(arr) {
+        return arr.reduce(function (x, y) {
+            return x + y;
+        })
+    }
+
+    console.log(sum([1, 2, 3, 4, 5]));
+
+    //闭包
+    function lazy_sum(arr) {
+        var sum = function () {
+            return arr.reduce(function (x, y) {
+                return x + y;
+            });
+        }
+        return sum;
+    }
+
+    var f = lazy_sum([1, 2, 3, 4, 5]); // function sum()
+    console.log(f())
+
+</script>
+
+</body>
+</html>

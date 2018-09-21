@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<script type="text/javascript">
+    function testClick() {
+        window.WebViewJavascriptBridge.send("测试数据", function (responseData) {
+
+        })
+    }
+
+    WebViewJavascriptBridge.init(function (message,responseCallBack) {
+        
+    })
+
+</script>
+<body>
+
+<button onclick="testClick()">测试</button>
+</body>
+</html>

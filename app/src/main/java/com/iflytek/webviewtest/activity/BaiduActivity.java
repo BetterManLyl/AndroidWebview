@@ -131,6 +131,7 @@ public class BaiduActivity extends AppCompatActivity {
             @Override
             public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
                 Log.e(TAG, "onReceivedError: ");
+                view.loadUrl("file:///android_asset/error_page.html");
                 super.onReceivedError(view, request, error);
             }
 

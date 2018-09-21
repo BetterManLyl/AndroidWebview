@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        //我们必须在文档完成加载后再操作DOM
+        window.onload = function () {
+            //获取所有的li元素。给他们添加上时间处理函数（event handler）
+            var li = document.getElementsByTagName("li");
+            for (var i = 0; i < li.length; i++) {
+                //给这个li元素添加上onmouseover的事件处理函数
+                //将这个li元素颜色改变成蓝色
+                li[i].onmouseover = function () {
+                    this.style.backgroundColor = "blue";
+                }
+                //给这个li元素添加上onmouseout的事件处理函数
+                //将这个li元素颜色改变成白色
+                li[i].onmouseout = function () {
+                    this.style.backgroundColor = "white";
+                }
+            }
+
+
+            /**
+             * 修改自对象的例子
+             * @type {Array}
+             */
+                //创建一个数组
+            var items = new Array("one", "two", "three");
+            //创建数组的一个引用
+            var itemRef = items;
+            //将一个元素添加到原数组中
+            itemRef.push("four")
+            //这两个数组的长度应该是一致的，因为他们指向同一个数组对象
+            //      alert(items.length == itemRef.length);
+
+            //将items置为一个新对象
+            items = new Array("new", "array");
+
+            //items和itemsRes现在指向不同的对象了
+            //items指向的是new Array("new","array");
+            //itemRef指向的是new Array("one", "two", "three");
+            //   alert(items != itemRef)
+
+
+            var item = "test"
+            var itemRef = item;
+            item += "ing";
+            //   alert(item != itemRef)
+
+
+//            setTimeout(function () {
+//                alert('000')
+//            },2000)
+
+
+            var obj = new Object();
+            obj.click = function () {
+                alert('000')
+            }
+            obj.val = "5"
+            obj.click();
+
+            document.getElementById("everywhere").addEventListener('click', function () {
+                alert(111);
+            })
+
+            function User(name, age) {
+                this.name = name
+                this.age = age;
+            }
+
+            User.prototype.getName = function () {
+                return this.name;
+            }
+            User.prototype.getAge = function () {
+                return this.age;
+            }
+
+            var user = new User('lyl', 12)
+            alert(user.getName() == "lyl")
+            alert(user.getAge() == 12)
+
+        }
+
+    </script>
+</head>
+<body>
+
+<h1>Introduction to the DOM</h1>
+<p class="test"></p>
+
+<ul>
+    <li id="everywhere"> It can be found everywhere!</li>
+    <li class="test">It is easy to be use</li>
+    <li class="test">It can help you to find what you want ,really quickly</li>
+</ul>
+</body>
+</html>

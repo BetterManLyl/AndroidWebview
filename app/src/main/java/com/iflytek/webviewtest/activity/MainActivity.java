@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btn_skip_js_call_android;
 
     private Button btn_load_baidu;
+    private Button x5Webview;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,6 +37,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_skip_android_call_js = findViewById(R.id.btn_skip_android_call_js);
         btn_skip_js_call_android = findViewById(R.id.btn_skip_js_call_android);
         btn_load_baidu = findViewById(R.id.btn_load_baidu);
+        x5Webview = findViewById(R.id.btn_x5_webview);
+        x5Webview.setOnClickListener(this);
         btn_load_baidu.setOnClickListener(this);
         btn_skip_js_call_android.setOnClickListener(this);
         btn_skip_android_call_js.setOnClickListener(this);
@@ -52,6 +55,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_load_baidu:
                 startActivity(new Intent(this, BaiduActivity.class));
+                break;
+            case R.id.btn_x5_webview:
+                startActivity(new Intent(this, X5WebviewActivity.class));
                 break;
             default:
                 break;

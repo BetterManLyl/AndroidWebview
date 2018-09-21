@@ -24,4 +24,12 @@
         android:text="JS调用Android代码"
         android:textAllCaps="false" />
 
+    <Button
+        android:id="@+id/btn_x5_webview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="x5webview"
+        android:textAllCaps="false" />
+
+
 </LinearLayout>
