@@ -228,9 +228,9 @@ public class JsCallAndroidActivity extends AppCompatActivity {
                     if (uri == null) {
                         Bundle bundle = intent.getExtras();
                         Bitmap bitmap = (Bitmap) bundle.get("data");
-                        Bitmap compressBitmap = FileUtils.compressImage(bitmap);
+//                        Bitmap compressBitmap = FileUtils.compressImage(bitmap);
                         Log.d(TAG, "bitmapToBase64被调了...");
-                        String str = FileUtils.bitmapToBase64(compressBitmap);
+                        String str = FileUtils.bitmapToBase64(bitmap);
                         str = GsonUtil.getInstance().toJson(str);
 
                         refreshHtml(str);
@@ -247,13 +247,13 @@ public class JsCallAndroidActivity extends AppCompatActivity {
      * @param jsonS
      */
     private void refreshHtml(String jsonS) {
-        webView.evaluateJavascript("javascript:takePhotoCallBack('" + jsonS + "')", new ValueCallback<String>() {
+        webView.evaluateJavascript("javascript:takePhotoCallBack(" + jsonS + ")", new ValueCallback<String>() {
             @Override
             public void onReceiveValue(String value) {
                 Log.e(TAG, "onReceiveValue: " + value);
                 Toast.makeText(JsCallAndroidActivity.this, value, Toast.LENGTH_SHORT).show();
             }
-        });
+        });        
     }
 
     @Override
